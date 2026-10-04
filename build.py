@@ -15,7 +15,7 @@ import yaml
 ROOT = Path(__file__).resolve().parent
 DOCS = ROOT / "docs"
 OUT = ROOT / "_site"
-NAME = os.environ.get("SITE_NAME", "Your Name")
+NAME = os.environ.get("SITE_NAME", "Conatus Notes")
 BASE = urlsplit(os.environ.get("SITE_URL", "https://example.org/")).path.rstrip("/")
 MEDIA = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg", ".avif"}
 IGNORE = {"stylesheets", "javascripts", "_templates", "templates"}

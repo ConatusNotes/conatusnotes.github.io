@@ -1,0 +1,32 @@
+<header class="md-header" data-md-component="header">
+  <nav class="site-header md-grid" aria-label="Site navigation">
+
+    <!-- Mobile menu button -->
+    <label
+      class="site-menu md-header__button md-icon"
+      for="__drawer"
+      aria-label="Menu"
+    >
+      {% set icon = config.theme.icon.menu or "material/menu" %}
+      {% include ".icons/" ~ icon ~ ".svg" %}
+    </label>
+
+    <!-- Site name -->
+    <a
+      class="site-brand"
+      href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}"
+    >
+      {{ config.site_name }}
+    </a>
+
+    <!-- Desktop navigation generated from folders -->
+    <ul class="site-nav">
+      {% for nav_item in nav %}
+        {% if not nav_item.is_homepage %}
+          {% include "partials/tabs-item.html" %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+  </nav>
+</header>

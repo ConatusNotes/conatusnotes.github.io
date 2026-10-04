@@ -1,15 +1,17 @@
+
 :root {
   --paper: #fffcf0;
   --paper-2: #f2f0e5;
   --ink: #100f0f;
   --muted: #6f6e69;
+  --faint: #878580;
   --border: #e6e4d9;
 
   --purple: #5e409d;
-  --purple-hover: #8b7ec8;
+  --purple-hover: #735eb5;
 
   --orange: #bc5215;
-  --orange-hover: #da702c;
+  --orange-light: #da702c;
 
   --md-default-bg-color: var(--paper);
   --md-default-fg-color: var(--ink);
@@ -33,10 +35,17 @@ body {
   font-family:
     -apple-system,
     BlinkMacSystemFont,
-    "Segoe UI",
+    "Helvetica Neue",
     Helvetica,
     Arial,
     sans-serif;
+}
+
+
+/* overall width */
+
+.md-grid {
+  max-width: 1100px;
 }
 
 
@@ -45,40 +54,48 @@ body {
    ========================================================= */
 
 .md-header {
-  height: 4.25rem;
+  height: 4.6rem;
 
   background: var(--paper);
   color: var(--ink);
 
-  border-bottom: 1px solid var(--border);
   box-shadow: none;
+  border-bottom: 1px solid var(--border);
 }
 
 .md-header__inner {
-  max-width: 1050px;
-  height: 4.25rem;
+  max-width: 1100px;
+  height: 4.6rem;
 
+  display: flex;
   align-items: center;
 }
 
-/* Hide Material logo, but keep mobile menu */
+
+/* remove Material logo */
+
 .md-header__button.md-logo {
   display: none !important;
 }
 
-/* Personal-site title */
+
+/* title */
+
 .md-header__title {
   margin-left: 0;
 
   color: var(--ink);
 
-  font-size: 1.65rem;
+  font-size: 1.7rem;
   font-weight: 500;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.035em;
+
+  line-height: 1;
 }
 
 
-/* Remove Material search/source clutter */
+/* hide search + github/source junk */
+
 .md-search,
 .md-header__source {
   display: none;
@@ -86,26 +103,33 @@ body {
 
 
 /* =========================================================
-   DESKTOP NAVIGATION / TABS
+   TOP TABS
    ========================================================= */
 
 /*
-   Pull the tabs into the header so the title sits on the
-   left and navigation sits on the right.
+   Material normally puts tabs below the header.
+   Pull them upward so they sit on the same row as the title.
 */
 
 .md-tabs {
-  height: 4.25rem;
-  margin-top: -4.25rem;
+  height: 4.6rem;
+
+  margin-top: -4.6rem;
 
   background: transparent;
+  color: var(--ink);
+
   border: 0;
+  box-shadow: none;
 
   pointer-events: none;
+
+  position: relative;
+  z-index: 4;
 }
 
 .md-tabs__inner {
-  max-width: 1050px;
+  max-width: 1100px;
   height: 100%;
 
   display: flex;
@@ -115,15 +139,18 @@ body {
   pointer-events: auto;
 }
 
-.md-tabs__list {
-  margin: 0;
-  padding: 0;
 
+/* right-aligned tabs */
+
+.md-tabs__list {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 
   gap: 2rem;
+
+  margin: 0;
+  padding: 0;
 }
 
 .md-tabs__item {
@@ -131,38 +158,53 @@ body {
   padding: 0;
 }
 
+
+/* normal tab */
+
 .md-tabs__link {
   position: relative;
 
   margin: 0;
-  padding: 0.35rem 0;
+  padding: 0.4rem 0;
 
   color: var(--ink);
-  opacity: 1;
 
   font-size: 1rem;
   font-weight: 450;
+
+  opacity: 1;
+
+  transition:
+    color 120ms ease,
+    opacity 120ms ease;
 }
 
-/* Hover */
+
+/* hover */
+
 .md-tabs__link:hover {
   color: var(--purple);
 }
 
-/* Active section */
+
+/* active */
+
 .md-tabs__item--active .md-tabs__link {
   color: var(--ink);
-  font-weight: 500;
+  font-weight: 520;
 }
 
-/* Small orange active indicator */
+
+/* orange active indicator */
+
 .md-tabs__item--active .md-tabs__link::after {
   content: "";
 
   position: absolute;
+
   left: 0;
   right: 0;
-  bottom: -0.45rem;
+  bottom: -0.55rem;
 
   height: 2px;
 
@@ -171,20 +213,25 @@ body {
 
 
 /* =========================================================
-   CONTENT / ARTICLE
+   MAIN ARTICLE
    ========================================================= */
 
-.md-grid {
-  max-width: 980px;
+.md-content {
+  background: transparent;
 }
 
 .md-content__inner {
   max-width: 760px;
 
-  margin: 0 auto;
-  padding-top: 2.5rem;
-  padding-bottom: 6rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-top: 2.7rem;
+  padding-bottom: 7rem;
 }
+
+
+/* normal prose */
 
 .md-typeset {
   color: var(--ink);
@@ -199,30 +246,37 @@ body {
    ========================================================= */
 
 .md-typeset h1 {
-  margin: 0 0 1.5rem;
+  margin-top: 0;
+  margin-bottom: 1.6rem;
 
   color: var(--ink);
 
   font-size: 2rem;
-  font-weight: 550;
-  letter-spacing: -0.025em;
-  line-height: 1.18;
+  font-weight: 520;
+
+  letter-spacing: -0.035em;
+  line-height: 1.17;
 }
 
 .md-typeset h2 {
-  margin-top: 2.5rem;
+  margin-top: 2.8rem;
+  margin-bottom: 1rem;
 
   color: var(--ink);
 
-  font-size: 1.45rem;
-  font-weight: 550;
-  letter-spacing: -0.015em;
+  font-size: 1.48rem;
+  font-weight: 520;
+
+  letter-spacing: -0.02em;
+  line-height: 1.25;
 }
 
 .md-typeset h3 {
+  margin-top: 2.1rem;
+
   color: var(--ink);
 
-  font-size: 1.12rem;
+  font-size: 1.15rem;
   font-weight: 600;
 }
 
@@ -231,46 +285,86 @@ body {
    LINKS
    ========================================================= */
 
-.md-typeset a {
+.md-typeset a,
+.md-typeset a:visited {
   color: var(--purple);
 
+  background: transparent !important;
+
+  border: 0 !important;
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+
+  padding: 0;
+
   text-decoration: none;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
+
+  transition: color 100ms ease;
 }
 
 .md-typeset a:hover {
   color: var(--purple-hover);
+
+  background: transparent !important;
+
   text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+
+/* specifically kill ugly backgrounds on index/list links */
+
+.md-typeset li > a,
+.md-typeset p > a {
+  background: transparent !important;
+
+  border: none !important;
+  box-shadow: none !important;
+
+  padding: 0 !important;
 }
 
 
 /* =========================================================
-   SUBTLE ACCENTS
-   ========================================================= */
-
-.md-typeset blockquote {
-  border-left: 2px solid var(--orange);
-  color: var(--muted);
-}
-
-.md-typeset hr {
-  border-color: var(--border);
-}
-
-.md-typeset ::selection {
-  background: rgba(218, 112, 44, 0.22);
-}
-
-
-/* =========================================================
-   SECONDARY / META TEXT
+   SECONDARY TEXT / DATES
    ========================================================= */
 
 .md-typeset small,
 .md-typeset .date,
-.md-typeset .meta {
+.md-typeset .meta,
+.md-typeset time {
   color: var(--muted);
+}
+
+
+/* =========================================================
+   LISTS
+   ========================================================= */
+
+.md-typeset ul,
+.md-typeset ol {
+  padding-left: 1.25rem;
+}
+
+.md-typeset li {
+  margin-bottom: 0.3rem;
+}
+
+
+/* =========================================================
+   BLOCKQUOTES
+   ========================================================= */
+
+.md-typeset blockquote {
+  margin-left: 0;
+
+  padding-left: 1rem;
+
+  color: var(--muted);
+
+  border-left: 2px solid var(--orange);
 }
 
 
@@ -279,14 +373,44 @@ body {
    ========================================================= */
 
 .md-typeset code {
-  background: var(--paper-2);
   color: var(--ink);
+  background: var(--paper-2);
 
   border-radius: 2px;
+
+  padding: 0.08em 0.3em;
+}
+
+.md-typeset pre {
+  background: var(--paper-2);
+
+  border: 1px solid var(--border);
+
+  border-radius: 3px;
+
+  box-shadow: none;
 }
 
 .md-typeset pre > code {
+  background: transparent;
+}
+
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+.md-typeset table:not([class]) {
+  background: transparent;
+
+  border: 1px solid var(--border);
+
+  box-shadow: none;
+}
+
+.md-typeset table:not([class]) th {
   background: var(--paper-2);
+  color: var(--ink);
 }
 
 
@@ -296,13 +420,36 @@ body {
 
 .md-typeset img {
   border-radius: 0;
+
   box-shadow: none;
 }
 
 
 /* =========================================================
-   SIDEBAR / NAVIGATION
+   HORIZONTAL RULE
    ========================================================= */
+
+.md-typeset hr {
+  border-bottom: 1px solid var(--border);
+}
+
+
+/* =========================================================
+   TEXT SELECTION
+   ========================================================= */
+
+::selection {
+  background: rgba(218, 112, 44, 0.22);
+}
+
+
+/* =========================================================
+   LEFT / RIGHT NAVIGATION
+   ========================================================= */
+
+.md-nav {
+  font-size: 0.75rem;
+}
 
 .md-nav__link {
   color: var(--muted);
@@ -314,7 +461,54 @@ body {
 
 .md-nav__link--active {
   color: var(--purple);
+
   font-weight: 550;
+}
+
+
+/* subtle sidebar titles */
+
+.md-nav__title {
+  color: var(--ink);
+
+  background: var(--paper) !important;
+
+  box-shadow: none !important;
+}
+
+
+/* =========================================================
+   MATERIAL UI CLEANUP
+   ========================================================= */
+
+.md-button {
+  color: var(--purple);
+
+  background: transparent;
+
+  border: 1px solid var(--border);
+
+  border-radius: 2px;
+
+  box-shadow: none;
+}
+
+.md-button:hover {
+  color: var(--orange);
+
+  background: transparent;
+
+  border-color: var(--orange);
+}
+
+
+/* remove unnecessary shadows */
+
+.md-sidebar,
+.md-content,
+.md-main,
+.md-container {
+  box-shadow: none !important;
 }
 
 
@@ -326,6 +520,12 @@ body {
 .md-footer-meta {
   background: var(--paper);
   color: var(--muted);
+
+  box-shadow: none;
+}
+
+.md-footer {
+  border-top: 1px solid var(--border);
 }
 
 
@@ -334,12 +534,22 @@ body {
    ========================================================= */
 
 @media screen and (max-width: 76.234375em) {
+
   /*
-     Let Material for MkDocs handle mobile navigation normally.
+     Material collapses into its normal mobile menu here.
+     Don't try to squeeze desktop tabs onto a phone.
   */
 
   .md-tabs {
     display: none;
+  }
+
+  .md-header {
+    height: 3.7rem;
+  }
+
+  .md-header__inner {
+    height: 3.7rem;
   }
 
   .md-header__title {
@@ -347,14 +557,37 @@ body {
   }
 
   .md-content__inner {
-    padding-top: 1.5rem;
+    padding-top: 1.6rem;
+    padding-bottom: 4rem;
   }
 
   .md-typeset {
     font-size: 16px;
+    line-height: 1.65;
   }
 
   .md-typeset h1 {
-    font-size: 1.75rem;
+    font-size: 1.72rem;
+  }
+
+  .md-typeset h2 {
+    font-size: 1.35rem;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONE
+   ========================================================= */
+
+@media screen and (max-width: 600px) {
+
+  .md-content__inner {
+    padding-left: 0.15rem;
+    padding-right: 0.15rem;
+  }
+
+  .md-typeset h1 {
+    letter-spacing: -0.025em;
   }
 }

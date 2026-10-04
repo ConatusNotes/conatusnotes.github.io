@@ -4,7 +4,7 @@ site_url: https://conatusnotes.github.io
 docs_dir: docs
 
 theme:
-  name: material
+  name: simple-blog
   features:
     - navigation.tabs
     - navigation.tabs.sticky

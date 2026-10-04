@@ -4,9 +4,18 @@ site_url: https://conatusnotes.github.io
 docs_dir: docs
 
 theme:
-  name: simple-blog
+  name: material
+  font: false
+
+  palette:
+    scheme: default
+
   features:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.sections
     - navigation.indexes
+
+extra_css:
+  - stylesheets/site.css
+

@@ -258,3 +258,121 @@ body {
     font-size: 1.75rem;
   }
 }
+
+.md-header {
+  height: 4.25rem;
+  background: var(--paper);
+  border-bottom: 1px solid var(--border);
+  box-shadow: none;
+}
+
+.md-header__inner {
+  max-width: 1050px;
+  height: 4.25rem;
+  align-items: center;
+}
+
+/* Remove Material logo only — keep mobile menu */
+.md-header__button.md-logo {
+  display: none !important;
+}
+
+/* Larger personal-site title */
+.md-header__title {
+  margin-left: 0;
+  font-size: 1.65rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+
+
+/* ---------------------------------------------------------
+   Move tabs upward into header
+   --------------------------------------------------------- */
+
+.md-tabs {
+  height: 4.25rem;
+  margin-top: -4.25rem;
+
+  background: transparent;
+  border: 0;
+
+  pointer-events: none;
+}
+
+.md-tabs__inner {
+  max-width: 1050px;
+  height: 100%;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  pointer-events: auto;
+}
+
+.md-tabs__list {
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+}
+
+.md-tabs__item {
+  height: auto;
+  padding: 0;
+}
+
+.md-tabs__link {
+  position: relative;
+
+  margin: 0;
+  padding: 0.35rem 0;
+
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 450;
+  opacity: 1;
+}
+
+/* Purple hover */
+.md-tabs__link:hover {
+  color: var(--purple);
+}
+
+/* Current section */
+.md-tabs__item--active .md-tabs__link {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* Tiny orange active underline */
+.md-tabs__item--active .md-tabs__link::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.45rem;
+
+  height: 2px;
+  background: var(--orange);
+}
+
+
+/* ---------------------------------------------------------
+   Mobile: let Material return to normal mobile navigation
+   --------------------------------------------------------- */
+
+@media screen and (max-width: 76.234375em) {
+  .md-tabs {
+    display: none;
+  }
+
+  .md-header__title {
+    font-size: 1.35rem;
+  }
+}

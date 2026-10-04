@@ -1,14 +1,9 @@
 :root {
   --paper: #fffcf0;
-  --paper-2: #f2f0e5;
-
   --ink: #100f0f;
   --muted: #6f6e69;
   --border: #e6e4d9;
-
   --purple: #5e409d;
-  --purple-hover: #735eb5;
-
   --orange: #bc5215;
 
   --md-default-bg-color: var(--paper);
@@ -16,517 +11,64 @@
   --md-typeset-a-color: var(--purple);
 }
 
-
-/* =========================================================
-   GLOBAL
-   ========================================================= */
-
 html,
 body,
 .md-container,
-.md-main {
+.md-main,
+.md-header,
+.md-tabs,
+.md-footer,
+.md-footer-meta {
   background: var(--paper) !important;
   color: var(--ink);
 }
 
 body {
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    Helvetica,
-    Arial,
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
-
-.md-grid {
-  max-width: 1080px;
-}
-
-
-/* =========================================================
-   HEADER
-   ========================================================= */
 
 .md-header {
-  height: 4.6rem;
-
-  background: var(--paper) !important;
-  color: var(--ink);
-
+  box-shadow: none;
   border-bottom: 1px solid var(--border);
-  box-shadow: none !important;
 }
 
-
-/* one real row — no overlay hacks */
-
-.site-header {
-  height: 4.6rem;
-
-  display: flex;
-  align-items: center;
-
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-
-/* =========================================================
-   SITE NAME
-   ========================================================= */
-
-.site-brand {
-  flex: 0 0 auto;
-
-  color: var(--ink) !important;
-
-  font-size: 1.72rem;
-  font-weight: 500;
-
-  line-height: 1;
-
-  letter-spacing: -0.035em;
-
-  text-decoration: none !important;
-}
-
-.site-brand:hover {
-  color: var(--ink) !important;
-}
-
-
-/* =========================================================
-   DESKTOP NAV
-   ========================================================= */
-
-.site-nav {
-  margin: 0 0 0 auto;
-  padding: 0;
-
-  display: flex;
-  align-items: center;
-
-  gap: 2rem;
-
-  list-style: none;
-}
-
-
-/*
-   We reuse Material's own tabs-item template for navigation,
-   but NOT Material's tab bar itself.
-*/
-
-.site-nav .md-tabs__item {
-  height: auto;
-
-  margin: 0;
-  padding: 0;
-
-  list-style: none;
-}
-
-
-.site-nav .md-tabs__link {
-  position: relative;
-
-  display: block;
-
-  margin: 0;
-  padding: 0.45rem 0;
-
-  color: var(--ink) !important;
-
-  font-size: 1rem;
-  font-weight: 450;
-
-  line-height: 1.2;
-
-  opacity: 1 !important;
-
-  text-decoration: none;
-
-  transition: color 120ms ease;
-}
-
-
-.site-nav .md-tabs__link:hover {
-  color: var(--purple) !important;
-}
-
-
-/* active section */
-
-.site-nav .md-tabs__link--active {
-  color: var(--ink) !important;
-  font-weight: 520;
-}
-
-
-/* orange active indicator */
-
-.site-nav .md-tabs__link--active::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  right: 0;
-  bottom: -0.48rem;
-
-  height: 2px;
-
-  background: var(--orange);
-}
-
-
-/* =========================================================
-   MOBILE MENU
-   ========================================================= */
-
-.site-menu {
+.md-header__button.md-logo {
   display: none;
-  color: var(--ink) !important;
 }
 
-
-/* =========================================================
-   REMOVE DESKTOP DOCS SIDEBARS
-   ========================================================= */
-
-@media screen and (min-width: 801px) {
-
-  .md-sidebar--primary,
-  .md-sidebar--secondary {
-    display: none !important;
-  }
-
-  .md-content {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
+.md-header__title {
+  font-size: 1.5rem;
+  font-weight: 500;
 }
-
-
-/* =========================================================
-   CONTENT
-   ========================================================= */
-
-.md-main {
-  background: var(--paper);
-}
-
-.md-main__inner {
-  max-width: 1080px;
-}
-
-.md-content {
-  background: transparent !important;
-}
-
-.md-content__inner {
-  max-width: 740px;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  padding-top: 2.8rem;
-  padding-bottom: 7rem;
-}
-
 
 .md-typeset {
-  color: var(--ink);
-
   font-size: 17px;
   line-height: 1.68;
 }
 
-
-/* =========================================================
-   HEADINGS
-   ========================================================= */
-
-.md-typeset h1 {
-  margin-top: 0;
-  margin-bottom: 1.6rem;
-
-  color: var(--ink);
-
-  font-size: 2rem;
-  font-weight: 520;
-
-  letter-spacing: -0.035em;
-  line-height: 1.17;
-}
-
-
-.md-typeset h2 {
-  margin-top: 2.8rem;
-  margin-bottom: 1rem;
-
-  color: var(--ink);
-
-  font-size: 1.45rem;
-  font-weight: 520;
-
-  letter-spacing: -0.02em;
-  line-height: 1.25;
-}
-
-
-.md-typeset h3 {
-  margin-top: 2rem;
-
-  color: var(--ink);
-
-  font-size: 1.15rem;
-  font-weight: 600;
-}
-
-
-/* =========================================================
-   ARTICLE LINKS
-   ========================================================= */
-
 .md-typeset a,
 .md-typeset a:visited {
   color: var(--purple) !important;
-
   background: transparent !important;
-
-  border: 0 !important;
-  border-radius: 0 !important;
-
   box-shadow: none !important;
-
-  padding: 0 !important;
-
-  text-decoration: none;
 }
-
 
 .md-typeset a:hover {
-  color: var(--purple-hover) !important;
-
-  background: transparent !important;
-
   text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
 }
-
-
-/* kill white/Material backgrounds around index links */
-
-.md-typeset p > a,
-.md-typeset li > a,
-.md-typeset h1 > a,
-.md-typeset h2 > a,
-.md-typeset h3 > a {
-  background: transparent !important;
-
-  border: 0 !important;
-
-  box-shadow: none !important;
-
-  padding: 0 !important;
-}
-
-
-/* =========================================================
-   SECONDARY TEXT
-   ========================================================= */
-
-.md-typeset small,
-.md-typeset time,
-.md-typeset .date,
-.md-typeset .meta {
-  color: var(--muted);
-}
-
-
-/* =========================================================
-   BLOCKQUOTES
-   ========================================================= */
 
 .md-typeset blockquote {
-  margin-left: 0;
-
-  padding-left: 1rem;
-
-  color: var(--muted);
-
-  border-left: 2px solid var(--orange);
+  border-left-color: var(--orange);
 }
 
-
-/* =========================================================
-   CODE
-   ========================================================= */
-
-.md-typeset code {
-  color: var(--ink);
-
-  background: var(--paper-2);
-
-  border-radius: 2px;
-}
-
-
-.md-typeset pre {
-  background: var(--paper-2);
-
-  border: 1px solid var(--border);
-  border-radius: 3px;
-
-  box-shadow: none;
-}
-
-
-.md-typeset pre > code {
-  background: transparent;
-}
-
-
-/* =========================================================
-   TABLES
-   ========================================================= */
-
-.md-typeset table:not([class]) {
-  background: transparent;
-
-  border: 1px solid var(--border);
-
-  box-shadow: none;
-}
-
-
-.md-typeset table:not([class]) th {
-  color: var(--ink);
-
-  background: var(--paper-2);
-}
-
-
-/* =========================================================
-   IMAGES
-   ========================================================= */
-
-.md-typeset img {
-  border-radius: 0;
-  box-shadow: none;
-}
-
-
-/* =========================================================
-   RULES + SELECTION
-   ========================================================= */
-
-.md-typeset hr {
+.md-tabs {
   border-bottom: 1px solid var(--border);
 }
 
-
-::selection {
-  background: rgba(218, 112, 44, 0.22);
-}
-
-
-/* =========================================================
-   DRAWER NAVIGATION
-   ========================================================= */
-
-.md-nav__link {
-  color: var(--muted);
-}
-
-
-.md-nav__link:hover,
-.md-nav__link--active {
-  color: var(--purple) !important;
-}
-
-
-.md-nav__title {
+.md-tabs__link {
   color: var(--ink);
-
-  background: var(--paper) !important;
-
-  box-shadow: none !important;
 }
 
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-.md-footer,
-.md-footer-meta {
-  background: var(--paper) !important;
-
-  color: var(--muted);
-
-  box-shadow: none !important;
-}
-
-
-/* =========================================================
-   PHONE / SMALL TABLET
-   ========================================================= */
-
-@media screen and (max-width: 800px) {
-
-  .md-header {
-    height: 3.8rem;
-  }
-
-  .site-header {
-    height: 3.8rem;
-  }
-
-
-  /* hide desktop navigation */
-
-  .site-nav {
-    display: none;
-  }
-
-
-  /* show Material drawer button */
-
-  .site-menu {
-    display: inline-flex;
-
-    margin-left: -0.5rem;
-    margin-right: 0.25rem;
-  }
-
-
-  .site-brand {
-    font-size: 1.4rem;
-  }
-
-
-  .md-content__inner {
-    padding-top: 1.6rem;
-    padding-bottom: 4rem;
-  }
-
-
-  .md-typeset {
-    font-size: 16px;
-    line-height: 1.65;
-  }
-
-
-  .md-typeset h1 {
-    font-size: 1.75rem;
-  }
-
-
-  .md-typeset h2 {
-    font-size: 1.35rem;
-  }
+.md-tabs__link:hover {
+  color: var(--purple);
 }

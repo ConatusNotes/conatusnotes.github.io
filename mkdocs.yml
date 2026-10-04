@@ -12,5 +12,8 @@ theme:
     - navigation.sections
     - navigation.indexes
 
+not_in_nav: |
+  /index.md
+
 extra_css:
   - stylesheets/site.css

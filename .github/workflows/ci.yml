@@ -28,7 +28,7 @@ jobs:
         run: python -m pip install mistune==3.2.1 PyYAML==6.0.3
       - name: Build website
         env:
-          SITE_NAME: "Your Name"
+          SITE_NAME: "Conatus Notes"
           SITE_URL: ${{ steps.pages.outputs.base_url }}/
         run: python build.py
       - uses: actions/upload-pages-artifact@v4

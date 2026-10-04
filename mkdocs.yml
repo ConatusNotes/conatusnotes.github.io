@@ -2,7 +2,6 @@ site_name: Conatus Notes
 
 theme:
   name: material
-  custom_dir: overrides
   font: false
 
   palette:

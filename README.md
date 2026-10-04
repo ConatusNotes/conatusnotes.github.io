@@ -1,2 +1,2 @@
 # conatusnotes.github.io
-Web Page
+Notes 

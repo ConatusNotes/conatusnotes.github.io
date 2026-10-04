@@ -1,5 +1,4 @@
 :root {
-
   --paper: #fffcf0;
 
   --paper-2: #f2f0e5;

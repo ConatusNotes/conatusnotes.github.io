@@ -49,186 +49,162 @@ body {
    ========================================================= */
 
 .md-header {
-  height: 4.5rem;
+  height: 4.6rem;
 
   background: var(--paper) !important;
-  color: var(--ink) !important;
+  color: var(--ink);
 
   border-bottom: 1px solid var(--border);
   box-shadow: none !important;
-
-  position: relative;
-  z-index: 10;
 }
 
-.md-header__inner {
-  max-width: 1080px;
-  height: 4.5rem;
+
+/* one real row — no overlay hacks */
+
+.site-header {
+  height: 4.6rem;
 
   display: flex;
   align-items: center;
-}
 
-
-/* remove Material logo */
-
-.md-header__button.md-logo {
-  display: none !important;
-}
-
-
-/* site title */
-
-.md-header__title {
-  margin-left: 0 !important;
-
-  color: var(--ink) !important;
-
-  font-size: 1.7rem !important;
-  font-weight: 500;
-
-  letter-spacing: -0.035em;
-}
-
-.md-header__topic,
-.md-header__ellipsis {
-  color: var(--ink) !important;
-  font-weight: inherit;
-}
-
-
-/* remove search/source clutter */
-
-.md-search,
-.md-header__source {
-  display: none !important;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 
 /* =========================================================
-   NAVIGATION TABS
-   title left / navigation right
+   SITE NAME
    ========================================================= */
 
+.site-brand {
+  flex: 0 0 auto;
+
+  color: var(--ink) !important;
+
+  font-size: 1.72rem;
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: -0.035em;
+
+  text-decoration: none !important;
+}
+
+.site-brand:hover {
+  color: var(--ink) !important;
+}
+
+
+/* =========================================================
+   DESKTOP NAV
+   ========================================================= */
+
+.site-nav {
+  margin: 0 0 0 auto;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 2rem;
+
+  list-style: none;
+}
+
+
 /*
-   Force Material's tabs to stay visible on normal
-   laptop-sized windows instead of disappearing below 1220px.
+   We reuse Material's own tabs-item template for navigation,
+   but NOT Material's tab bar itself.
 */
+
+.site-nav .md-tabs__item {
+  height: auto;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+
+.site-nav .md-tabs__link {
+  position: relative;
+
+  display: block;
+
+  margin: 0;
+  padding: 0.45rem 0;
+
+  color: var(--ink) !important;
+
+  font-size: 1rem;
+  font-weight: 450;
+
+  line-height: 1.2;
+
+  opacity: 1 !important;
+
+  text-decoration: none;
+
+  transition: color 120ms ease;
+}
+
+
+.site-nav .md-tabs__link:hover {
+  color: var(--purple) !important;
+}
+
+
+/* active section */
+
+.site-nav .md-tabs__link--active {
+  color: var(--ink) !important;
+  font-weight: 520;
+}
+
+
+/* orange active indicator */
+
+.site-nav .md-tabs__link--active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: -0.48rem;
+
+  height: 2px;
+
+  background: var(--orange);
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.site-menu {
+  display: none;
+  color: var(--ink) !important;
+}
+
+
+/* =========================================================
+   REMOVE DESKTOP DOCS SIDEBARS
+   ========================================================= */
 
 @media screen and (min-width: 801px) {
 
-  .md-tabs {
-    display: block !important;
-
-    position: absolute !important;
-
-    top: 0 !important;
-    left: 0 !important;
-
-    width: 100% !important;
-    height: 4.5rem !important;
-
-    margin: 0 !important;
-
-    background: transparent !important;
-
-    border: 0 !important;
-    box-shadow: none !important;
-
-    z-index: 20;
-
-    pointer-events: none;
+  .md-sidebar--primary,
+  .md-sidebar--secondary {
+    display: none !important;
   }
 
-
-  /* Material's actual inner tabs container */
-
-  .md-tabs > .md-grid {
-    max-width: 1080px !important;
-    height: 4.5rem !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-
-    margin: 0 auto !important;
-
-    padding-left: 1rem;
-    padding-right: 1rem;
-
-    pointer-events: none;
-  }
-
-
-  /* tab list */
-
-  .md-tabs__list {
-    width: auto !important;
-    height: auto !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-
-    gap: 2rem;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    pointer-events: auto;
-  }
-
-
-  .md-tabs__item {
-    height: auto !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-
-  .md-tabs__link {
-    position: relative;
-
-    margin: 0 !important;
-    padding: 0.4rem 0 !important;
-
-    color: var(--ink) !important;
-
-    font-size: 1rem !important;
-    font-weight: 450;
-
-    opacity: 1 !important;
-
-    transition: color 120ms ease;
-  }
-
-
-  .md-tabs__link:hover {
-    color: var(--purple) !important;
-  }
-
-
-  .md-tabs__item--active .md-tabs__link {
-    color: var(--ink) !important;
-    font-weight: 500;
-  }
-
-
-  /* orange line below active section */
-
-  .md-tabs__item--active .md-tabs__link::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    bottom: -0.45rem;
-
-    height: 2px;
-
-    background: var(--orange);
+  .md-content {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }
 
@@ -236,6 +212,14 @@ body {
 /* =========================================================
    CONTENT
    ========================================================= */
+
+.md-main {
+  background: var(--paper);
+}
+
+.md-main__inner {
+  max-width: 1080px;
+}
 
 .md-content {
   background: transparent !important;
@@ -250,6 +234,7 @@ body {
   padding-top: 2.8rem;
   padding-bottom: 7rem;
 }
+
 
 .md-typeset {
   color: var(--ink);
@@ -276,6 +261,7 @@ body {
   line-height: 1.17;
 }
 
+
 .md-typeset h2 {
   margin-top: 2.8rem;
   margin-bottom: 1rem;
@@ -286,9 +272,13 @@ body {
   font-weight: 520;
 
   letter-spacing: -0.02em;
+  line-height: 1.25;
 }
 
+
 .md-typeset h3 {
+  margin-top: 2rem;
+
   color: var(--ink);
 
   font-size: 1.15rem;
@@ -297,7 +287,7 @@ body {
 
 
 /* =========================================================
-   LINKS
+   ARTICLE LINKS
    ========================================================= */
 
 .md-typeset a,
@@ -316,6 +306,7 @@ body {
   text-decoration: none;
 }
 
+
 .md-typeset a:hover {
   color: var(--purple-hover) !important;
 
@@ -327,12 +318,20 @@ body {
 }
 
 
-/* kill Material backgrounds around index links */
+/* kill white/Material backgrounds around index links */
 
 .md-typeset p > a,
-.md-typeset li > a {
+.md-typeset li > a,
+.md-typeset h1 > a,
+.md-typeset h2 > a,
+.md-typeset h3 > a {
   background: transparent !important;
+
+  border: 0 !important;
+
   box-shadow: none !important;
+
+  padding: 0 !important;
 }
 
 
@@ -349,7 +348,7 @@ body {
 
 
 /* =========================================================
-   BLOCKQUOTE
+   BLOCKQUOTES
    ========================================================= */
 
 .md-typeset blockquote {
@@ -375,6 +374,7 @@ body {
   border-radius: 2px;
 }
 
+
 .md-typeset pre {
   background: var(--paper-2);
 
@@ -384,8 +384,29 @@ body {
   box-shadow: none;
 }
 
+
 .md-typeset pre > code {
   background: transparent;
+}
+
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+.md-typeset table:not([class]) {
+  background: transparent;
+
+  border: 1px solid var(--border);
+
+  box-shadow: none;
+}
+
+
+.md-typeset table:not([class]) th {
+  color: var(--ink);
+
+  background: var(--paper-2);
 }
 
 
@@ -400,12 +421,13 @@ body {
 
 
 /* =========================================================
-   RULES / SELECTION
+   RULES + SELECTION
    ========================================================= */
 
 .md-typeset hr {
   border-bottom: 1px solid var(--border);
 }
+
 
 ::selection {
   background: rgba(218, 112, 44, 0.22);
@@ -413,17 +435,19 @@ body {
 
 
 /* =========================================================
-   SIDEBAR
+   DRAWER NAVIGATION
    ========================================================= */
 
 .md-nav__link {
   color: var(--muted);
 }
 
+
 .md-nav__link:hover,
 .md-nav__link--active {
   color: var(--purple) !important;
 }
+
 
 .md-nav__title {
   color: var(--ink);
@@ -441,6 +465,7 @@ body {
 .md-footer,
 .md-footer-meta {
   background: var(--paper) !important;
+
   color: var(--muted);
 
   box-shadow: none !important;
@@ -448,39 +473,60 @@ body {
 
 
 /* =========================================================
-   MOBILE
+   PHONE / SMALL TABLET
    ========================================================= */
 
 @media screen and (max-width: 800px) {
-
-  /* use normal Material hamburger navigation */
-
-  .md-tabs {
-    display: none !important;
-  }
 
   .md-header {
     height: 3.8rem;
   }
 
-  .md-header__inner {
+  .site-header {
     height: 3.8rem;
   }
 
-  .md-header__title {
-    font-size: 1.4rem !important;
+
+  /* hide desktop navigation */
+
+  .site-nav {
+    display: none;
   }
+
+
+  /* show Material drawer button */
+
+  .site-menu {
+    display: inline-flex;
+
+    margin-left: -0.5rem;
+    margin-right: 0.25rem;
+  }
+
+
+  .site-brand {
+    font-size: 1.4rem;
+  }
+
 
   .md-content__inner {
     padding-top: 1.6rem;
     padding-bottom: 4rem;
   }
 
+
   .md-typeset {
     font-size: 16px;
+    line-height: 1.65;
   }
+
 
   .md-typeset h1 {
     font-size: 1.75rem;
+  }
+
+
+  .md-typeset h2 {
+    font-size: 1.35rem;
   }
 }

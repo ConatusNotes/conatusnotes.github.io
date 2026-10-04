@@ -4,6 +4,9 @@ theme:
   name: material
   font: false
 
+  palette:
+    scheme: default
+
   features:
     - navigation.tabs
     - navigation.sections

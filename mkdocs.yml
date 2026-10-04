@@ -1,0 +1,12 @@
+site_name: Your Name
+site_url: https://conatusnotes.github.io
+
+docs_dir: docs
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
